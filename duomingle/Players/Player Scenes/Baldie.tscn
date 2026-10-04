@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c81x2esc5p8ms"]
+
+[ext_resource type="Texture2D" uid="uid://81co3sm04uxa" path="res://Assets/Art/Players/WitchHaCt.png" id="1_igr83"]
+[ext_resource type="Script" uid="uid://bpl15e04xnrku" path="res://Players/Player.gd" id="1_imfkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igr83"]
+atlas = ExtResource("1_igr83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6aux"]
+atlas = ExtResource("1_igr83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwsa7"]
+atlas = ExtResource("1_igr83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imfkr"]
+atlas = ExtResource("1_igr83")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6aux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igr83")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6aux")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwsa7")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imfkr")
+}],
+"loop": false,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Bold" type="CharacterBody2D" unique_id=659177573]
+script = ExtResource("1_imfkr")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=742269894]
+sprite_frames = SubResource("SpriteFrames_v6aux")
+animation = &"Idle"
