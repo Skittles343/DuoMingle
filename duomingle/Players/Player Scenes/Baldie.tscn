@@ -54,9 +54,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bold" type="CharacterBody2D" unique_id=659177573]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imfkr"]
+size = Vector2(4, 14)
+
+[node name="Baldie" type="CharacterBody2D" unique_id=659177573]
 script = ExtResource("1_imfkr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=742269894]
 sprite_frames = SubResource("SpriteFrames_v6aux")
 animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1256539252]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_imfkr")
