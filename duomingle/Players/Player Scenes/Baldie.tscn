@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://81co3sm04uxa" path="res://Assets/Art/Players/WitchHaCt.png" id="1_igr83"]
 [ext_resource type="Script" uid="uid://bpl15e04xnrku" path="res://Players/Player.gd" id="1_imfkr"]
+[ext_resource type="PackedScene" uid="uid://bjghhed1lqy1x" path="res://Important Systems/Hurtbox/Scene/Hurtbox.tscn" id="3_v6aux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igr83"]
 atlas = ExtResource("1_igr83")
@@ -55,22 +56,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imfkr"]
-size = Vector2(6, 14)
+size = Vector2(10, 20)
 
-[node name="Baldie" type="CharacterBody2D" unique_id=659177573 node_paths=PackedStringArray("animPlayer")]
+[node name="Baldie" type="CharacterBody2D" unique_id=659177573 node_paths=PackedStringArray("animPlayer", "hurtBox")]
 script = ExtResource("1_imfkr")
 playerName = "Baldie"
 playerId = 1
 jumpingForce = -500.0
 speed = 750.0
 animPlayer = NodePath("Sprite")
+hurtBox = NodePath("HurtBox")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=742269894]
 sprite_frames = SubResource("SpriteFrames_v6aux")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1256539252]
-position = Vector2(0, 6)
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_imfkr")
 
 [node name="Current Enum State" type="Label" parent="." unique_id=1701706804]
@@ -78,3 +80,7 @@ offset_left = -18.0
 offset_top = -34.0
 offset_right = 18.0
 offset_bottom = -18.0
+
+[node name="HurtBox" parent="." unique_id=1250860523 instance=ExtResource("3_v6aux")]
+collision_layer = 0
+collision_mask = 0

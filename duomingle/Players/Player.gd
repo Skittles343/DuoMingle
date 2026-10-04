@@ -2,6 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 #Later -- i need to make the player controller more floaty and better instead of strict and rigid
+#Todo -- I need to work on the big scene transitional and the camera autoload
+#Todo -- I need to actually make the Gamemanager autoload script
+#Bug -- I need to fix the multi jumping as their can only be one jump
+
 
 #region variables
 
@@ -19,6 +23,7 @@ var currentEnumState: enumStateMachine
 @export var jumpingForce : float = -30
 var direction
 var isJumping: bool
+var isDead: bool
 @export var speed: float
 @onready var currentStateLabel: Label = $"Current Enum State"
 
@@ -28,7 +33,7 @@ var isJumping: bool
 #region Nodes
 
 @export var animPlayer: AnimatedSprite2D
-@export var hurtBox: Area2D
+@export var hurtBox: HurtBox
 
 #endregion
 
@@ -39,7 +44,7 @@ var isJumping: bool
 
 func _ready() -> void:
 	currentEnumState = enumStateMachine.Idle
-
+	hurtBox.hitReceived.connect(hurtBoxHit)
 
 func _physics_process(delta: float) -> void:
 	handleDirection(delta)
@@ -48,7 +53,8 @@ func _physics_process(delta: float) -> void:
 	handleMovement(delta)
 	
 	move_and_slide()
-	
+
+
 func _process(delta: float) -> void:
 	handleAnimation()
 
@@ -59,9 +65,9 @@ func handleGravity(delta: float):
 func handleDirection(delta: float):
 	var inputDirection = Input.get_axis("Move_Left " + str(playerId), "Move_Right " + str(playerId) )
 	direction = Vector2(inputDirection, 0)
-	if direction.x != 0 and isJumping == false and currentEnumState != enumStateMachine.Death:
+	if direction.x != 0 and isJumping == false and isDead == false:
 		currentEnumState = enumStateMachine.Moving
-	elif direction.x == 0 and isJumping == false and currentEnumState != enumStateMachine.Death:
+	elif direction.x == 0 and isJumping == false and isDead == false:
 		currentEnumState = enumStateMachine.Idle
 
 func handleJump():
@@ -79,6 +85,9 @@ func handleMovement(delta: float):
 			velocity.y = jumpingForce
 			isJumping = false
 			currentEnumState = enumStateMachine.Idle if direction.x == 0 else enumStateMachine.Moving
+		enumStateMachine.Death:
+			velocity.x = 0
+			handleDeath()
 
 func handleAnimation():
 	match currentEnumState:
@@ -95,12 +104,21 @@ func handleAnimation():
 			playAnimation("Death")
 			currentStateLabel.text = "Death"
 
+func handleDeath():
+	#Print -- Here
+	print("I think ur Dead")
+
+
 func playAnimation(animationToPlay: String):
 	animPlayer.play(animationToPlay)
 
 #endregion
 
+
 #region Signal Functions
+
+func hurtBoxHit():
+	currentEnumState = enumStateMachine.Death
 
 #endregion
 
