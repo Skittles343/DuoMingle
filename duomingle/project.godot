@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Duomingle"
-run/main_scene="uid://b1lyeg2nv5f15"
+run/main_scene="uid://caa51m7da1ljl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MainCamera="*uid://3kud54t43gur"
+Gamemanager="*uid://xjyowj5yney1"
+Scenemanager="*uid://uvjuwae4spp2"
 
 [display]
 

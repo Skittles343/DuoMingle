@@ -59,6 +59,8 @@ animations = [{
 size = Vector2(10, 20)
 
 [node name="Baldie" type="CharacterBody2D" unique_id=659177573 node_paths=PackedStringArray("animPlayer", "hurtBox")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_imfkr")
 playerName = "Baldie"
 playerId = 1

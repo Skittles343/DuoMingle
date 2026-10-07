@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://caa51m7da1ljl"]
+
+[ext_resource type="PackedScene" uid="uid://dx3878k26sq7a" path="res://Autoloads/Cores/Scenes/SceneHolder.tscn" id="1_iqqtt"]
+[ext_resource type="PackedScene" uid="uid://chhwr0ekxtuxl" path="res://Autoloads/Cores/UiHolder.tscn" id="2_hj5mp"]
+[ext_resource type="PackedScene" uid="uid://cclu5g3ak1wch" path="res://Important Systems/Helpers/Scenes/PlayerHelper.tscn" id="3_hj5mp"]
+
+[node name="RootHolder" type="Node" unique_id=11341069]
+
+[node name="SceneHolder" parent="." unique_id=393984624 instance=ExtResource("1_iqqtt")]
+
+[node name="UiHolder" parent="." unique_id=1966124231 instance=ExtResource("2_hj5mp")]
+
+[node name="PlayerHelper" parent="." unique_id=870440750 instance=ExtResource("3_hj5mp")]
