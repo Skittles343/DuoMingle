@@ -5,6 +5,7 @@ extends CharacterBody2D
 #Todo -- I need to work on the big scene transitional and the camera autoload
 #Todo -- I need to actually make the Gamemanager autoload script
 #Bug -- I need to fix the multi jumping as their can only be one jump
+#Next -- I need to make sure that I make all of the layer names and set the layers
 
 
 #region variables

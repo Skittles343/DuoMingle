@@ -72,6 +72,15 @@ Fullscreen={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_3="Players"
+2d_physics/layer_5="Checkpoints"
+2d_physics/layer_6="Player1Water"
+2d_physics/layer_7="Player2Water"
+2d_physics/layer_8="NoPlayerWater"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
