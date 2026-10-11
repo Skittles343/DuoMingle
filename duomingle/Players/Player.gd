@@ -5,6 +5,7 @@ extends CharacterBody2D
 #Todo -- I need to work on the big scene transitional and the camera autoload
 #Todo -- I need to actually make the Gamemanager autoload script
 #Bug -- I need to fix the multi jumping as their can only be one jump
+#Bug -- I need to fix how zoomed out the camera is
 
 #region variables
 
@@ -31,7 +32,7 @@ var isDead: bool
 
 #region Nodes
 
-@export var animPlayer: AnimatedSprite2D
+@export var animPlayer: AnimationPlayer
 @export var hurtBox: HurtBox
 
 #endregion
@@ -62,16 +63,18 @@ func handleGravity(delta: float):
 		velocity.y += gravity 
 
 func handleDirection(delta: float):
-	var inputDirection = Input.get_axis("Move_Left " + str(playerId), "Move_Right " + str(playerId) )
-	direction = Vector2(inputDirection, 0)
-	if direction.x != 0 and isJumping == false and isDead == false:
-		currentEnumState = enumStateMachine.Moving
-	elif direction.x == 0 and isJumping == false and isDead == false:
-		currentEnumState = enumStateMachine.Idle
+	if playerId == 1 or playerId == 2:
+		var inputDirection = Input.get_axis("Move_Left " + str(playerId), "Move_Right " + str(playerId) )
+		direction = Vector2(inputDirection, 0)
+		if direction.x != 0 and isJumping == false and isDead == false:
+			currentEnumState = enumStateMachine.Moving
+		elif direction.x == 0 and isJumping == false and isDead == false:
+			currentEnumState = enumStateMachine.Idle
 
 func handleJump():
-	if Input.is_action_just_pressed("Jump " + str(playerId) ):
-		currentEnumState = enumStateMachine.Jump
+	if playerId == 1 or playerId == 2:
+		if Input.is_action_just_pressed("Jump " + str(playerId) ):
+			currentEnumState = enumStateMachine.Jump
 
 func handleMovement(delta: float):
 	match currentEnumState:

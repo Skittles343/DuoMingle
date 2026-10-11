@@ -13,19 +13,26 @@ config_version=5
 config/name="Duomingle"
 run/main_scene="uid://caa51m7da1ljl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cx88kp0a5ndeh"
+
+[audio]
+
+buses/default_bus_layout="uid://db3u2hwcrppci"
 
 [autoload]
 
 MainCamera="*uid://3kud54t43gur"
 Gamemanager="*uid://xjyowj5yney1"
 Scenemanager="*uid://uvjuwae4spp2"
+SignalManager="*uid://c1ggbr6hmj8h0"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=2
+window/size/window_width_override=640
+window/size/window_height_override=360
 
 [editor_plugins]
 

@@ -31,7 +31,7 @@ func _ready() -> void:
 	startFirstScene("TestMap")
 
 func startFirstScene(theScene: String):
-	Scenemanager.changeScene(theScene)
+	Scenemanager.changeScene(theScene, "level")
 
 #endregion
 

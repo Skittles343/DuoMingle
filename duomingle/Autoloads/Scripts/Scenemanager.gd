@@ -33,6 +33,8 @@ func changeScene( nextScene: String, dictNeeded: String = "level"):
 		dict = levelDict
 	elif dictNeeded == "ui":
 		dict = uiDict
+	elif dictNeeded == "Players":
+		dict = playersDict
 	
 	if not dict.has(nextScene):
 		push_error("Yo you put the wrong Scene name in or the scene just ain't added yet. Fix it now!")
