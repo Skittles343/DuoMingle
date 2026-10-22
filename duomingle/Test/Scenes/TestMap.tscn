@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bnj2lchqsoyd8" path="res://icon.svg" id="1_kcgql"]
 [ext_resource type="PackedScene" uid="uid://c81x2esc5p8ms" path="res://Players/Player Scenes/Baldie.tscn" id="2_cxajf"]
+[ext_resource type="PackedScene" uid="uid://b1hx1u0i6ik2s" path="res://Important Systems/Checkpoint/Scene/Checkpoint.tscn" id="3_6kwr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxajf"]
 texture = ExtResource("1_kcgql")
@@ -150,3 +151,9 @@ limit_top = 0
 limit_right = 640
 limit_bottom = 360
 editor_draw_drag_margin = true
+
+[node name="Baldie2" parent="." unique_id=492543669 instance=ExtResource("2_cxajf")]
+playerId = 2
+
+[node name="Checkpoint" parent="." unique_id=761542509 instance=ExtResource("3_6kwr1")]
+position = Vector2(247, 241)

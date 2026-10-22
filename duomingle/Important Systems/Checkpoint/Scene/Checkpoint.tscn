@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://b1hx1u0i6ik2s"]
+
+[ext_resource type="Script" uid="uid://cytn6f5d1dbsk" path="res://Important Systems/Checkpoint/Script/Checkpoint.gd" id="1_tjrfe"]
+[ext_resource type="Texture2D" uid="uid://bnj2lchqsoyd8" path="res://icon.svg" id="2_n8d4f"]
+
+[sub_resource type="Animation" id="Animation_nt1cv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a3mea"]
+resource_name = "Strawberry-Checked"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.278927, 0.57156456, 0.28025785, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aaoiw"]
+resource_name = "Strawberry-Halfchecked"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.48235294, 0.5294118, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n8d4f"]
+resource_name = "Strawberry-Unchecked"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.819997, 0.2864561, 0.2680047, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt1cv"]
+_data = {
+&"RESET": SubResource("Animation_nt1cv"),
+&"Strawberry-Checked": SubResource("Animation_a3mea"),
+&"Strawberry-Halfchecked": SubResource("Animation_aaoiw"),
+&"Strawberry-Unchecked": SubResource("Animation_n8d4f")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8d4f"]
+size = Vector2(10, 19)
+
+[node name="Checkpoint" type="Area2D" unique_id=761542509 node_paths=PackedStringArray("animPlayer", "sprite", "collisShape")]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_tjrfe")
+checkPointNames = Array[String](["Strawberry", "Strawberry", "Strawberry"])
+animPlayer = NodePath("animPlayer")
+sprite = NodePath("sprite")
+collisShape = NodePath("collisShape")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=82628901]
+scale = Vector2(0.062499996, 0.1640625)
+texture = ExtResource("2_n8d4f")
+
+[node name="animPlayer" type="AnimationPlayer" parent="." unique_id=1853992952]
+libraries/ = SubResource("AnimationLibrary_nt1cv")
+
+[node name="collisShape" type="CollisionShape2D" parent="." unique_id=850834560]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_n8d4f")
+
+[connection signal="body_entered" from="." to="." method="playerBody"]
