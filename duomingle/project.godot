@@ -21,10 +21,10 @@ buses/default_bus_layout="uid://db3u2hwcrppci"
 
 [autoload]
 
-MainCamera="*uid://3kud54t43gur"
 Gamemanager="*uid://xjyowj5yney1"
 Scenemanager="*uid://uvjuwae4spp2"
 SignalManager="*uid://c1ggbr6hmj8h0"
+Transitionalmanager="*uid://cprhxvwgr0o4b"
 
 [display]
 
@@ -33,6 +33,7 @@ window/size/viewport_height=360
 window/size/mode=2
 window/size/window_width_override=640
 window/size/window_height_override=360
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

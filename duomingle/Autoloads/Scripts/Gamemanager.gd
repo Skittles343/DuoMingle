@@ -10,7 +10,8 @@ var currentScene: Node = null
 var rootHolder: Node
 var sceneHolder: Node
 var uiHolder: Node
-var playerHelper:Node
+var playerHelper: Node
+var Transitionalmanager: Node
 
 #endregion
 
@@ -27,11 +28,12 @@ func _ready() -> void:
 	sceneHolder = rootHolder.get_child(0)
 	uiHolder = rootHolder.get_child(1)
 	playerHelper = rootHolder.get_child(2)
+	#Transitionalmanager = rootHolder.get_child(3)
 	
 	startFirstScene("TestMap")
 
-func startFirstScene(theScene: String):
-	Scenemanager.changeScene(theScene, "level")
+func startFirstScene(initialScene: String):
+	Scenemanager.changeScene(initialScene, "level")
 
 #endregion
 

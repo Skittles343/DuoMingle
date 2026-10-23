@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cprhxvwgr0o4b"]
+
+[ext_resource type="Script" uid="uid://tjadxg63tduf" path="res://Autoloads/Scripts/Transitionalmanager.gd" id="1_4wqf1"]
+
+[sub_resource type="Animation" id="Animation_4wqf1"]
+resource_name = "Horizontal"
+length = 0.6
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-640, 0), Vector2(-220, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 0), Vector2(220, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"changeScene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_11nn0"]
+resource_name = "Horizontal-Open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-220, 0), Vector2(-1580, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(220, 0), Vector2(1580, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cx6hs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1580, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1580, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx6hs"]
+_data = {
+&"Horizontal-Close": SubResource("Animation_4wqf1"),
+&"Horizontal-Open": SubResource("Animation_11nn0"),
+&"RESET": SubResource("Animation_cx6hs")
+}
+
+[node name="Transitionalmanager" type="Node" unique_id=496498065 node_paths=PackedStringArray("animPlayer")]
+script = ExtResource("1_4wqf1")
+animPlayer = NodePath("animPlayer")
+
+[node name="animPlayer" type="AnimationPlayer" parent="." unique_id=1761733054]
+libraries/ = SubResource("AnimationLibrary_cx6hs")
+
+[node name="ColorRect1" type="ColorRect" parent="." unique_id=1811268934]
+z_index = 10
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1580.0
+offset_right = -1580.0
+offset_bottom = 9640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.87058824, 0.6392157, 0.54509807, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1584837026]
+z_index = 10
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1580.0
+offset_right = 1580.0
+offset_bottom = 9640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.87058824, 0.6392157, 0.54509807, 1)
+metadata/_edit_use_anchors_ = true
