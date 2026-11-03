@@ -81,7 +81,7 @@ func switchSceneTo(scenePath: String, addTransition: bool = true):
 	
 	if addTransition == true:
 		#Next -- When I am doing the Player Holder, I need to move this to here.
-		Transitionalmanager.playSceneOpeningTransition()
+		SignalManager.PlayerHolderYourTime.emit()
 
 func getDict(Name: String) -> Dictionary:
 	
@@ -90,7 +90,7 @@ func getDict(Name: String) -> Dictionary:
 		dict = levelDict
 	elif Name == "ui":
 		dict = uiDict
-	elif Name == "Players":
+	elif Name == "players":
 		dict = playersDict
 	
 	return dict

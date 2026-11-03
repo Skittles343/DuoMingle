@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://cclu5g3ak1wch"]
 
+[ext_resource type="Script" uid="uid://jxpn7todhclq" path="res://Important Systems/Helpers/Scripts/PlayerHelper.gd" id="1_0h83n"]
+[ext_resource type="PackedScene" uid="uid://c81x2esc5p8ms" path="res://Players/Player Scenes/Baldie.tscn" id="1_ys8s1"]
+
 [node name="PlayerHelper" type="Node" unique_id=870440750]
+script = ExtResource("1_0h83n")
+
+[node name="Baldie" parent="." unique_id=659177573 instance=ExtResource("1_ys8s1")]
+position = Vector2(29, -44)
+
+[node name="Baldie2" parent="." unique_id=1174723891 instance=ExtResource("1_ys8s1")]
+position = Vector2(19, 0)
+playerId = 2
