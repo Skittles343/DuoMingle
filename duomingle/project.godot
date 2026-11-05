@@ -25,6 +25,7 @@ Gamemanager="*uid://xjyowj5yney1"
 Scenemanager="*uid://uvjuwae4spp2"
 SignalManager="*uid://c1ggbr6hmj8h0"
 Transitionalmanager="*uid://cprhxvwgr0o4b"
+SaveManager="*uid://btbhb44royga3"
 
 [display]
 

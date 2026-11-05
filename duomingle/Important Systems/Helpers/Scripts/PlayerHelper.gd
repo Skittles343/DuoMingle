@@ -1,5 +1,6 @@
 extends Node
 
+var filePath: String = "res://Important Systems/Resources/LevelData/"
 var checkableScenes: Dictionary = {}
 
 func _ready() -> void:
