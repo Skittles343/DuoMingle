@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d1upn04l3ac1"]
+
+[ext_resource type="Script" uid="uid://cb85u7pk7mw34" path="res://Important Systems/Helpers/Scripts/CheckPointHelper.gd" id="1_0b15v"]
+[ext_resource type="PackedScene" uid="uid://b1hx1u0i6ik2s" path="res://Important Systems/Checkpoint/Scene/Checkpoint.tscn" id="2_xhfth"]
+
+[node name="CheckPointHelper" type="Node2D" unique_id=532586656 node_paths=PackedStringArray("checkPointHolder", "checkPointMarker")]
+script = ExtResource("1_0b15v")
+checkPointHolder = NodePath("CheckPoint  Holder")
+checkPointMarker = NodePath("CheckPoint Marker")
+checkPoints = ExtResource("2_xhfth")
+
+[node name="CheckPoint  Holder" type="Node2D" parent="." unique_id=1984967376]
+
+[node name="CheckPoint Marker" type="Node2D" parent="." unique_id=741683844]

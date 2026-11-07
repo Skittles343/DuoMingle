@@ -15,8 +15,6 @@ func addPlayerChild(playerToAdd: String):
 		add_child(instantiatedPlayerScene)
 
 func getThingsReady():
-	#Print -- Here 
-	print("It is working")
 	Transitionalmanager.playSceneOpeningTransition()
 
 func appendScene(Name: String, dictName: String, uid: String):
@@ -39,9 +37,8 @@ func appendScene(Name: String, dictName: String, uid: String):
 	dictArray.append(dict)
 	dictArray.append(uid)
 	checkableScenes[Name] = dictArray
-	#Print -- Here
-	print(checkableScenes[Name])
 
+#func 
 
 	
 

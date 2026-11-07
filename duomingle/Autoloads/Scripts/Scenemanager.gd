@@ -39,8 +39,6 @@ func changeScene( nextScene: String, dictNeeded: String = "level", transitionTyp
 		return
 	
 	incomingScenePath = dict[nextScene]
-	#Print -- Here
-	print("Still working")
 	
 	Transitionalmanager.playSceneClosingTransition(transitionType)
 	switchSceneTo(dict[nextScene])

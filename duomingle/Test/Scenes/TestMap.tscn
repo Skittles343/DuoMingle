@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdsucmebkac37" path="res://Test/Scripts/TestMap.gd" id="1_j2hew"]
 [ext_resource type="Texture2D" uid="uid://bnj2lchqsoyd8" path="res://icon.svg" id="1_kcgql"]
 [ext_resource type="PackedScene" uid="uid://b1hx1u0i6ik2s" path="res://Important Systems/Checkpoint/Scene/Checkpoint.tscn" id="3_6kwr1"]
+[ext_resource type="PackedScene" uid="uid://d1upn04l3ac1" path="res://Important Systems/Helpers/Scenes/CheckPointHelper.tscn" id="4_j2hew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxajf"]
 texture = ExtResource("1_kcgql")
@@ -152,4 +153,32 @@ limit_bottom = 360
 editor_draw_drag_margin = true
 
 [node name="Checkpoint" parent="." unique_id=761542509 instance=ExtResource("3_6kwr1")]
-position = Vector2(288, 202)
+position = Vector2(-152, 109)
+
+[node name="CheckPointHelper" parent="." unique_id=532586656 instance=ExtResource("4_j2hew")]
+
+[node name="Mark" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="0" unique_id=662261012]
+position = Vector2(403, 190)
+
+[node name="Mark2" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="1" unique_id=1781765739]
+position = Vector2(121, 197)
+
+[node name="Mark3" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="2" unique_id=218273187]
+position = Vector2(499, 197)
+
+[node name="Mark4" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="3" unique_id=1991589867]
+position = Vector2(795, 89)
+
+[node name="Mark5" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="4" unique_id=698167105]
+position = Vector2(795, 89)
+
+[node name="Mark6" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="5" unique_id=31919446]
+position = Vector2(795, 89)
+
+[node name="Mark7" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="6" unique_id=970261766]
+position = Vector2(795, 89)
+
+[node name="Mark8" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="7" unique_id=731758971]
+position = Vector2(795, 89)
+
+[editable path="CheckPointHelper"]

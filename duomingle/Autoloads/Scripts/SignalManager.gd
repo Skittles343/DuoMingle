@@ -4,3 +4,5 @@ extends Node
 signal SceneManagerReadyToChange
 #For Player Holder and Scenemanager
 signal PlayerHolderYourTime
+#Checkpoints
+signal Checked(numId: int)
