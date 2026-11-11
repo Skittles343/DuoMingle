@@ -6,13 +6,28 @@ var checkableScenes: Dictionary = {}
 func _ready() -> void:
 	SignalManager.PlayerHolderYourTime.connect(getThingsReady)
 
-func addPlayerChild(playerToAdd: String):
+func addPlayerChild(playerToAdd: String, id: int):
 	var packedPlayerScene: PackedScene = load(playerToAdd)
 	if not packedPlayerScene == null:
 		push_error("Sorry but this player's uid isn't working in the Player Helper")
 		
 		var instantiatedPlayerScene := packedPlayerScene.instantiate()
+		instantiatedPlayerScene.playerId = id
 		add_child(instantiatedPlayerScene)
+
+func removePlayerChild(playerToRemove: String, id :int):
+	for player in get_children():
+		if player.playerName == playerToRemove and player.playerId == id:
+			player.queue_free()
+			return
+
+func getPlayername(id: int):
+	if id > 2 or id <= 0:
+		push_error(" Why in the word is the inputed id '%s' ?" % id)
+	for player in get_children():
+		if player.playerId == id:
+			return player.playerName
+			continue
 
 func getThingsReady():
 	Transitionalmanager.playSceneOpeningTransition()

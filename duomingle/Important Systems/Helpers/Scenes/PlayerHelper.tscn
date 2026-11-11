@@ -11,4 +11,5 @@ position = Vector2(29, -44)
 
 [node name="Baldie2" parent="." unique_id=1174723891 instance=ExtResource("1_ys8s1")]
 position = Vector2(19, 0)
+playerName = "Bldie"
 playerId = 2

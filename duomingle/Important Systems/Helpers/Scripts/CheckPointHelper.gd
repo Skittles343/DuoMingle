@@ -4,7 +4,7 @@ extends Node2D
 @export var checkPointHolder: Node2D
 @export var checkPointMarker: Node2D
 @export var checkPoints: PackedScene
-var checkPoint
+var checkPointId: int = 0
 
 func _ready() -> void:
 	SignalManager.Checked.connect(resetChecked)
@@ -23,11 +23,12 @@ func makeThePoints():
 		checkPoint.checkId = counter
 		mark.queue_free()
 
-func resetChecked(Id: int):
+func resetChecked(id: int):
 	for check in checkPointHolder.get_children():
 		if check.currentlyChecked == false and check.halfChecked == false:
 			continue
-		elif check.currentlyChecked == true and check.checkId == Id:
+		elif check.currentlyChecked == true and check.checkId == id:
+			checkPointId = id
 			continue
 		else:
 			check.resetCheck()
