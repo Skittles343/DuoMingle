@@ -7,6 +7,7 @@ extends Node
 
 var levelDict = {
 	"TestMap": "uid://b1lyeg2nv5f15",
+	"Level1": "uid://c8vk2k046lbmy",
 }
 
 var uiDict = { }
@@ -33,7 +34,8 @@ func _ready() -> void:
 func changeScene( nextScene: String, dictNeeded: String = "level", transitionType: String = Transitionalmanager.defaultTransition):
 	#Making sure that I can change it to more than just levels without having to write a lot when calling the function
 	var dict: Dictionary = getDict(dictNeeded)
-	
+	#Print -- Here
+	print("Bored")
 	if not dict.has(nextScene):
 		push_error("Yo you put the wrong Scene name in or the scene just ain't added yet. Fix it now!")
 		return
@@ -50,9 +52,8 @@ func startInitialScene(sceneName: String, dictNeeded: String = "level"):
 		push_error("Sorry but '%s' isn't in this dict. Fix it!" % sceneName)
 		return
 		
+	#switchSceneTo(incomingScenePath)
 	incomingScenePath = ""
-	switchSceneTo(dict[sceneName] )
-
 
 func timeToChangeScene():
 	if incomingScenePath == "" :
@@ -70,16 +71,18 @@ func switchSceneTo(scenePath: String, addTransition: bool = true):
 		return
 	
 	var newScene := packedScene.instantiate()
-	
+	#Bug -- For some reaon there are two change scene funcs. Whenever I try to cancel one out, something for the player mnager doesn't work.
 	if Gamemanager.currentScene:
 		Gamemanager.currentScene.queue_free()
+		#Print -- Here
+	print("Bored")
 	
 	Gamemanager.currentScene = newScene
 	Gamemanager.sceneHolder.add_child(newScene)
 	
 	if addTransition == true:
-		#Next -- When I am doing the Player Holder, I need to move this to here.
-		SignalManager.PlayerHolderYourTime.emit()
+		pass
+	SignalManager.PlayerHolderYourTime.emit()
 
 func getDict(Name: String) -> Dictionary:
 	

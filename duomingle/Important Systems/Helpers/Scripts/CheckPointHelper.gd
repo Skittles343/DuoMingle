@@ -8,7 +8,7 @@ var checkPointId: int = 0
 
 func _ready() -> void:
 	SignalManager.Checked.connect(resetChecked)
-	#checkPoint.Checked.connect(resetChecked)
+	SignalManager.checkPointNumPos.connect(getCheckPointPos)
 
 func makeThePoints():
 	var counter: int = -1
@@ -32,8 +32,14 @@ func resetChecked(id: int):
 			continue
 		else:
 			check.resetCheck()
+	Scenemanager.changeScene("Level1")
 
-
+func getCheckPointPos(checkId: int ):
+	
+	for check : CheckPoint in checkPointHolder.get_children():
+		if check.checkId == checkId:
+			Gamemanager.playerHelper.hasCheckPos(check.global_position)
+			resetChecked(check.checkId)
 
 
 

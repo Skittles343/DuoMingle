@@ -2,6 +2,7 @@ extends Node
 
 var filePath: String = "res://Important Systems/Resources/LevelData/"
 var checkableScenes: Dictionary = {}
+var playerPos: Vector2
 
 func _ready() -> void:
 	SignalManager.PlayerHolderYourTime.connect(getThingsReady)
@@ -30,7 +31,13 @@ func getPlayername(id: int):
 			continue
 
 func getThingsReady():
-	Transitionalmanager.playSceneOpeningTransition()
+	var scene = Gamemanager.sceneHolder.get_child(0).name
+	if SaveManager.isLevelDataThere(scene) == true:
+		var dict = SaveManager.loadLevelData(scene)
+		SignalManager.checkPointNumPos.emit(dict["CheckpointId"])
+		return
+	else:
+		Transitionalmanager.playSceneOpeningTransition()
 
 func appendScene(Name: String, dictName: String, uid: String):
 	
@@ -52,6 +59,11 @@ func appendScene(Name: String, dictName: String, uid: String):
 	dictArray.append(dict)
 	dictArray.append(uid)
 	checkableScenes[Name] = dictArray
+
+func hasCheckPos(pos: Vector2):
+	for child in get_children():
+		child.global_position = pos
+	Transitionalmanager.playSceneOpeningTransition()
 
 #func 
 

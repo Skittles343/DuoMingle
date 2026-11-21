@@ -35,6 +35,9 @@ func _ready() -> void:
 func startFirstScene(initialScene: String):
 	Scenemanager.changeScene(initialScene, "level")
 
+func _exit_tree() -> void:
+	SaveManager.deleteLevelData()
+
 #endregion
 
 

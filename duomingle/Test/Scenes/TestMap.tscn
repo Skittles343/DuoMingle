@@ -161,7 +161,7 @@ position = Vector2(-152, 109)
 position = Vector2(403, 190)
 
 [node name="Mark2" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="1" unique_id=1781765739]
-position = Vector2(121, 197)
+position = Vector2(187, 198)
 
 [node name="Mark3" type="Marker2D" parent="CheckPointHelper/CheckPoint Marker" parent_id_path=PackedInt32Array(532586656, 741683844) index="2" unique_id=218273187]
 position = Vector2(499, 197)
